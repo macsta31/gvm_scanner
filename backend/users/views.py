@@ -33,6 +33,8 @@ def authenticate(request):
 
         with Gmp(connection=connection) as gmp:
             response = gmp.authenticate(username, password)
+            responsesoup = BeautifulSoup(response, 'lxml')
+            # print(responsesoup.prettify())
             response = BeautifulSoup(response).find('authenticate_response')['status_text']
             if response == 'Authentication failed':
                 return JsonResponse({'message': 'Authentication failed'}, status=403)

@@ -29,4 +29,5 @@ urlpatterns = [
     path('reports/', include('reports.urls')),
     path('scans/', include('scans.urls')),
     path('results/', include('results.urls')),
+    path('nvts/', include('nvts.urls'))
 ]
